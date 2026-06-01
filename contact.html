@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تواصل معنا — Samsung Libya</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="contact.css" />
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">SAMSUNG</a>
+
+    <ul class="nav-links">
+      <li><a href="index.html#categories">الفئات</a></li>
+      <li><a href="index.html#products">المنتجات</a></li>
+      <li><a href="index.html#featured">المميز</a></li>
+      <li><a href="index.html#testimonials">آراء العملاء</a></li>
+      <li><a href="index.html#newsletter" class="nav-cta">اشترك الآن</a></li>
+    </ul>
+
+    <button
+      class="nav-hamburger"
+      id="nav-hamburger"
+      aria-label="فتح القائمة"
+      onclick="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-menu" id="nav-drawer">
+    <ul>
+      <li><a href="index.html#categories" onclick="closeMenu()">الفئات</a></li>
+      <li><a href="index.html#products" onclick="closeMenu()">المنتجات</a></li>
+      <li><a href="index.html#featured" onclick="closeMenu()">المميز</a></li>
+      <li><a href="index.html#testimonials" onclick="closeMenu()">آراء العملاء</a></li>
+    </ul>
+    <a href="index.html#newsletter" class="mob-cta" onclick="closeMenu()">اشترك الآن</a>
+  </div>
+  <div id="nav-overlay" style="display:none;position:fixed;inset:0;z-index:99;background:rgba(0,0,0,0.3);" onclick="closeMobileMenu()"></div>
+
+  <!-- HERO -->
+  <div class="contact-hero">
+    <h1>تواصل <span>معنا</span></h1>
+
+    <p>
+      نحن هنا لمساعدتك — سواء كان لديك سؤال عن منتج أو تحتاج دعماً فنياً
+    </p>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <div class="contact-section">
+
+    <!-- معلومات التواصل -->
+    <div class="contact-info">
+
+      <h2>معلومات التواصل</h2>
+
+      <div class="info-card">
+        <div class="info-icon">📞</div>
+
+        <div class="info-text">
+          <h4>رقم الهاتف</h4>
+          <p>
+            <a href="tel:+218910000000">218-91-000-0000+</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">📧</div>
+
+        <div class="info-text">
+          <h4>البريد الإلكتروني</h4>
+          <p>
+            <a href="mailto:support@samsung-libya.ly">
+              support@samsung-libya.ly
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">📍</div>
+
+        <div class="info-text">
+          <h4>العنوان</h4>
+          <p>طرابلس، ليبيا — شارع عمر المختار</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">🕐</div>
+
+        <div class="info-text">
+          <h4>ساعات العمل</h4>
+          <p>السبت – الخميس: 9 صباحاً – 6 مساءً</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- الفورم -->
+    <div class="contact-form-wrap">
+
+      <h2>أرسل لنا رسالة</h2>
+
+      <div class="form-row">
+
+        <div class="form-group">
+          <label>الاسم الكامل</label>
+          <input type="text" id="name" placeholder="أدخل اسمك" />
+        </div>
+
+        <div class="form-group">
+          <label>رقم الهاتف</label>
+          <input type="tel" id="phone" placeholder="09xxxxxxxx" />
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label>البريد الإلكتروني</label>
+
+        <input
+          type="email"
+          id="email"
+          placeholder="example@email.com"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>الموضوع</label>
+
+        <select id="subject">
+          <option value="">اختر الموضوع</option>
+          <option>استفسار عن منتج</option>
+          <option>دعم فني</option>
+          <option>طلب ضمان</option>
+          <option>شكوى</option>
+          <option>أخرى</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>الرسالة</label>
+
+        <textarea
+          id="message"
+          placeholder="اكتب رسالتك هنا..."
+        ></textarea>
+      </div>
+
+      <button
+        class="submit-btn"
+        id="submit-btn"
+        onclick="sendMessage()"
+      >
+        إرسال الرسالة ✉️
+      </button>
+
+      <div class="success-msg" id="success-msg"></div>
+
+    </div>
+
+  </div>
+
+  <!-- سجل الرسائل -->
+  <div class="messages-section" id="messages-section">
+
+    <div class="messages-header">
+
+      <h2>
+        📋 سجل الرسائل
+        <span class="msg-count" id="msg-count"></span>
+      </h2>
+
+      <button class="clear-all-btn" onclick="clearAllMessages()">
+        🗑 مسح الكل
+      </button>
+
+    </div>
+
+    <div class="messages-list" id="messages-list"></div>
+
+    <p class="no-messages" id="no-messages">
+      لا توجد رسائل محفوظة بعد.
+    </p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span>© 2025 Samsung Libya. جميع الحقوق محفوظة.</span>
+    </div>
+  </footer>
+
+  <script src="contact.js"></script>
+
+</body>
+</html>
